@@ -1,36 +1,69 @@
-import { colors, fontSize } from '@styles/variables';
+import { colors, device, fontSize, landscapeDevice, screenSize } from '@styles/variables';
 import { darken } from 'polished';
 import styled from 'styled-components';
 
+export const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw; 
+  height: 100vh;
+`;
+
 export const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  width: fit-content;
+  height: fit-content;
+
+  gap: 10%;
+  padding: 0 1.25rem;
+
+  @media (${device.tablet}) and (${landscapeDevice.tablet}) {
+    padding: 0 2.5rem;
+  }
+
+  @media (${device.desktop}) {
+    max-width: 70vw;
+  }
+`;
+
+export const SignUpSection = styled.section`
   display: flex;
   flex-direction: column;
 
   justify-content: center;
   align-items: center;
 
-  padding: 0 1.25rem;
-
-  height: 100vh;
-  width: 100vw;
-
   gap: 3.375rem;
+
+  @media (${device.tablet}) and (${landscapeDevice.tablet}) {
+    max-width: 60vw;
+  }
+`;
+
+export const Explanation = styled.section`
+  display: none;
+
+  @media (${device.tablet}) and (${landscapeDevice.tablet}) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+
+    .texts {
+      display: flex;
+      flex-direction: column;
+      gap: 0.875rem;
+    }
+  }
 `;
 
 export const Header = styled.section`
   display: flex;
   flex-direction: column;
   gap: 0.875rem;
-
-  p {
-    font-size: ${fontSize.subtitle};
-    color: ${colors.textGrey};
-  }
-
-  h1 {
-    font-size: ${fontSize.title};
-    color: ${colors.titleGrey};
-  }
 `;
 
 export const Form = styled.form`
@@ -65,15 +98,16 @@ export const Form = styled.form`
 
 export const Footer = styled.section`
   display: flex;
-
   justify-content: center;
-
-  position: absolute;
-  bottom: 1.875rem;
 
   gap: 0.3125rem;
 
   width: 100%;
+
+  @media (${device.tablet}) and (${landscapeDevice.tablet}) {
+    position: absolute;
+    bottom: 5%;
+  }
 
   p {
     color: #69686D;
@@ -84,3 +118,4 @@ export const Footer = styled.section`
     color: #3661EB;
   }
 `;
+

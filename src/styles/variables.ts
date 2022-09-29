@@ -13,44 +13,41 @@ export const colors = {
 
 export const screenSize = {
   mobileS: '320px',
-  mobileM: '375px',
+  mobileM: '480px',
   mobileL: '500px',
-  tablet: '768px',
-  tabletL: '900px',
-  laptop: '1200px',
-  laptopL: '1440px',
-  desktop: '2560px'
+  tablet: '600px',
+  tabletL: '801px',
+  laptop: '1025px',
+  desktop: '1281px'
 }
 
 export const device = {
-  mobileS: `(min-width: ${screenSize.mobileS})`,
-  mobileM: `(min-width: ${screenSize.mobileM})`,
-  mobileL: `(min-width: ${screenSize.mobileL})`,
-  tablet: `(min-width: ${screenSize.tablet})`,
-  tabletL: `(min-width: ${screenSize.tabletL})`,
-  laptop: `(min-width: ${screenSize.laptop})`,
-  laptopL: `(min-width: ${screenSize.laptopL})`,
-  desktop: `(min-width: ${screenSize.desktop})`,
-  desktopL: `(min-width: ${screenSize.desktop})`
+  mobileS: `min-width: ${screenSize.mobileS}`,
+  mobileM: `min-width: ${screenSize.mobileM}`,
+  mobileL: `min-width: ${screenSize.mobileL}`,
+  tablet: `min-width: ${screenSize.tablet}`,
+  tabletL: `min-width: ${screenSize.tabletL}`,
+  laptop: `min-width: ${screenSize.laptop}`,
+  desktop: `min-width: ${screenSize.desktop}`,
+  desktopL: `min-width: ${screenSize.desktop}`
 };
 
 export const landscapeDevice = {
-  mobileS: `(min-height: ${screenSize.mobileS})`,
-  mobileM: `(min-height: ${screenSize.mobileM})`,
-  mobileL: `(min-height: ${screenSize.mobileL})`,
-  tablet: `(min-height: ${screenSize.tablet})`,
-  tabletL: `(min-height: ${screenSize.tabletL})`,
-  laptop: `(min-height: ${screenSize.laptop})`,
-  laptopL: `(min-height: ${screenSize.laptopL})`,
-  desktop: `(min-height: ${screenSize.desktop})`,
-  desktopL: `(min-height: ${screenSize.desktop})`
+  mobileS: `min-height: ${screenSize.mobileS}`,
+  mobileM: `min-height: ${screenSize.mobileM}`,
+  mobileL: `min-height: ${screenSize.mobileL}`,
+  tablet: `min-height: ${screenSize.tablet}`,
+  tabletL: `min-height: ${screenSize.tabletL}`,
+  laptop: `min-height: ${screenSize.laptop}`,
+  desktop: `min-height: ${screenSize.desktop}`,
+  desktopL: `min-height: ${screenSize.desktop}`
 }
 
 export const fontSize = {
-  title: '2.125rem',
-  subtitle: '1.125rem',
-  paragraph: '1rem',
-  small: '0.75rem',
-  button: '1.125rem',
-  input: '1.125rem',
+  title: 'clamp(1.9rem, 4vw, 2.125rem)',
+  subtitle: 'clamp(1rem, 2.5vw, 1.125rem)',
+  paragraph: 'clamp(0.975rem, 2vw, 1rem)',
+  small: 'clamp(0.7rem, 1.5vw, 0.75rem)',
+  button: 'clamp(0.975rem, 2vw, 1.125rem)',
+  input: 'clamp(0.975rem, 2vw, 1.125rem)',
 }

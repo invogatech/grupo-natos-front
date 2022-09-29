@@ -114,3 +114,21 @@ export const Divisor = styled.div`
   height: 1px;
   background: ${colors.grey200};
 `;
+
+export const Title = styled.h1`
+  color: ${colors.titleGrey};
+  font-size: ${fontSize.title};
+  
+`;
+
+export const SubTitle = styled.h2`
+  color: ${colors.textGrey};
+  font-size: ${fontSize.subtitle};
+  line-height: 150%;
+`;
+
+export const Paragraph = styled.p`
+  color: ${colors.textGrey};
+  font-size: ${fontSize.paragraph};
+  line-height: 150%;
+`;
