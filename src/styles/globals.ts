@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
   #root {
     margin: 0 auto;
   }
-  button {
+  button { 
     cursor: pointer;
   }
 
@@ -68,25 +68,22 @@ export default GlobalStyle;
 
 export const Button = styled.button`
   border: none;
-  border-radius: 5px;
-  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  padding: 1.25rem 0;
   
   width: 100%;
-  height: 42px;
+  height: 3.75rem;
 
   cursor: pointer;
 
-  background: ${colors.green};
+  background: ${colors.mainBlue};
   
 
   color: #fff;
   font-size: ${fontSize.button};
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 
   &:hover {
-    background: ${darken(0.02, colors.green)};
+    background: ${darken(0.02, colors.mainBlue)};
   }
 `;
 
@@ -95,29 +92,25 @@ export const Input = styled.input`
   -moz-appearance: none;
   appearance: none;
 
-  background: #fff;
-  border: 0.5px solid ${colors.strokeGray};
-  border-radius: 5px;
-  padding: 0.5rem 1rem;
+  background: ${colors.grey400};
+  border: none;
+  border-radius: 30px;
+  padding: 1.125rem 1.1875rem;
 
   width: 100%;
-  height: 36px;
+  height: 3.75rem;
 
-  color: ${colors.gray};
-  font-size: ${fontSize.paragraph};
+  color: ${colors.grey700};
+  font-size: ${fontSize.input};
 
   &:focus {
     outline: none;
-    border: 0.75px solid ${colors.strokeGray};
+    border: 0.1px solid ${colors.grey500};
   }
 `;
 
 export const Divisor = styled.div`
   width: 100%;
   height: 1px;
-  background: ${colors.strokeGray};
-
-  @media ${landscapeDevice.mobileL} {
-    display: none;
-  }
+  background: ${colors.grey200};
 `;
