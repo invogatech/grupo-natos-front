@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
     background: ${colors.background};
 
     font-size: 16px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Marlin Geo SQ', sans-serif;
   }
   #root {
     margin: 0 auto;
