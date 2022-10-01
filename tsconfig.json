@@ -22,8 +22,8 @@
       "@api/*": ["./src/api/*"],
       "@pages/*": ["./src/pages/*"],
       "@styles/*": ["./src/styles/*"],
-      "@assets/*": ["./assets/*"],
-      "@public/*": ["./public/*"]
+      "@public/*": ["./src/public/*"],
+      "@stores/*": ["./src/stores/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/public/fonts/style.js"],

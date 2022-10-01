@@ -9,6 +9,7 @@ export const colors = {
   transparentBlue: 'rgba(48, 85, 211, 0.09)',
   titleGrey: '#030303',
   textGrey: '#8C8C8C',
+  navBarGrey: '#727475',
 }
 
 export const screenSize = {

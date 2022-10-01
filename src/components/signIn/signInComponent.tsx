@@ -3,7 +3,7 @@ import { SignUpSection, Footer, Form, Header, Explanation, Wrapper, Container } 
 
 export default function SignInComponent() {
   return (
-    <Wrapper>
+    <Wrapper> 
       <Container>
         <SignUpSection>
             <Header>

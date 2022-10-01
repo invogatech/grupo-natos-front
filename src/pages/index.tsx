@@ -1,10 +1,16 @@
+import HeaderComponent from '@components/header/headerComponent'
+import SideBarComponent from '@components/sideBar/sideBarComponent'
+import { Wrapper } from '@styles/pages'
 import type { NextPage } from 'next'
 
 
 const Home: NextPage = () => {
 
   return (
-    <h1>Hello World</h1>
+    <Wrapper>
+      <SideBarComponent/>
+      <HeaderComponent/>
+    </Wrapper>
   )
 }
 

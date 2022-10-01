@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import { colors, fontSize, landscapeDevice } from '@styles/variables'
+import { colors, fontSize } from '@styles/variables'
 import { darken } from 'polished';
 
 const GlobalStyle = createGlobalStyle` 
@@ -109,9 +109,15 @@ export const Input = styled.input`
   }
 `;
 
-export const Divisor = styled.div`
+export const VerticalDivisor = styled.div`
   width: 100%;
   height: 1px;
+  background: ${colors.grey200};
+`;
+
+export const HorizontalDivisor = styled.div`
+  width: 1px;
+  height: 100%;
   background: ${colors.grey200};
 `;
 
