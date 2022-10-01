@@ -5,12 +5,30 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   display: flex;
 
-  width: 100vw;
   height: 100vh;
+  width: 100vw;
 
   position: absolute;
 
+  &.closed {
+    left: -100%;
+    transition: left 0.5s ease-in-out;
+  }
+
+  &.open {
+    left: 0;
+    transition: left 0.5s ease-in-out;
+  }
+
   @media (${device.laptop}) {
+    &.closed {
+      left: inherit
+    }
+
+    &.open {
+      left: inherit
+    }
+
     width: fit-content;
 
     position: relative;
@@ -31,7 +49,6 @@ export const SideBarContainer = styled.div`
   
   gap: 3.4375rem;
 
-
   @media (${device.laptop}) {
     width: 16.375rem;
   }
@@ -44,6 +61,16 @@ export const Overlay = styled.div`
 
   width: 30%;
   height: 100%;
+
+  &.closed {
+    opacity: 0;
+    transition: opacity 0.2 ease-in-out;
+  }
+
+  &.open {
+    opacity: 1;
+    transition: opacity 1.5s ease-in-out;
+  }
 
   @media (${device.laptop}) {
     display: none;

@@ -38,6 +38,10 @@ export const NavButton = styled.button`
   min-width: 2.75rem;
   min-height: 2.75rem;
 
+  .icon {
+    color: black;
+  }
+
   @media (${device.laptop}) {
     display: none;
   }

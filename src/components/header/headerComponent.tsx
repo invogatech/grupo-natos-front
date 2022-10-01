@@ -5,18 +5,18 @@ import NotificationBellNew from "@public/assets/notificacaoNovaHeader.svg"
 import NotificationBellEmptyDesktop from "@public/assets/notificacoesHeaderDesktop.svg"
 import NotificationBellNewDesktop from "@public/assets/notificacaoNovaHeaderDesktop.svg"
 import useNotificationsStore from "@stores/notifications";
+import useSideBarStore from "@stores/sideBar"
 import { AvatarItem, HeaderContainer, ItemsContainer, NavButton, NotificationItem } from "./headerStyle";
 
 export default function HeaderComponent() {
   const notifications = useNotificationsStore((state) => state.notifications);
-
-  console.log(notifications)
-
+  const toggleSideBar = useSideBarStore((state) => state.toggleSideBar);
+  const isSideBarOpen = useSideBarStore((state) => state.isSideBarOpen);
 
   return (
     <HeaderContainer>
-      <NavButton>
-        <AiOutlineMenu />
+      <NavButton onClick={() => toggleSideBar()}>
+        <AiOutlineMenu className="icon"/>
       </NavButton>
       <ItemsContainer>
         <NotificationItem>

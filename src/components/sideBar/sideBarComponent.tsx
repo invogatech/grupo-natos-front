@@ -9,7 +9,8 @@ import { MenuContainer, MenuItem, Overlay, SideBarContainer, Wrapper } from "./s
 import useSideBarStore from "@stores/sideBar";
 
 export default function SideBarComponent() {
-  const sideBarState = useSideBarStore((state) => state.isSideBarOpen);
+  const isSidebarOpen = useSideBarStore((state) => state.isSideBarOpen);
+  const toggleSideBar = useSideBarStore((state) => state.toggleSideBar);
   const currentPage = useSideBarStore((state) => state.currentPage);
   const setCurrentPage = useSideBarStore((state) => state.setCurrentPage);
 
@@ -41,13 +42,13 @@ export default function SideBarComponent() {
   ];
 
   return (
-    <Wrapper>
+    <Wrapper  className={isSidebarOpen ? "open" : "closed"} >
       <SideBarContainer>
         <Logo className="logo"/>
         <MenuContainer>
           <p>MENU</p>
           {menuItems.map((item) => (
-            <MenuItem className={currentPage == item.name ? "active" : "deactive" }>
+            <MenuItem key={Math.random()} className={currentPage == item.name ? "active" : "deactive" }>
               <div className="item-information" onClick={() => setCurrentPage(item.name)}>
                 <div className="active-marker"></div>
                 {item.icon}
@@ -57,7 +58,7 @@ export default function SideBarComponent() {
           ))}
         </MenuContainer>
       </SideBarContainer>
-      <Overlay/>
+      <Overlay  className={isSidebarOpen ? "open" : "closed"} onClick={() => toggleSideBar()}/>
     </Wrapper>
   );
 }
