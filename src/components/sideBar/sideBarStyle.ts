@@ -111,6 +111,12 @@ export const MenuItem = styled.section`
 
     p {
       font-size: 1.0625rem;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;  
     }
   }
 

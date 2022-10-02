@@ -20,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 16px;
     font-family: 'Marlin Geo SQ', sans-serif;
   }
+
   #root {
     margin: 0 auto;
   }

@@ -52,7 +52,7 @@ export default function SideBarComponent() {
               <div className="item-information" onClick={() => setCurrentPage(item.name)}>
                 <div className="active-marker"></div>
                 {item.icon}
-                <p>{item.name}</p>
+                <p unselectable="on">{item.name}</p>
               </div>
             </MenuItem>
           ))}

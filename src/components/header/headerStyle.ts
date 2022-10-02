@@ -71,47 +71,69 @@ export const ItemsContainer = styled.section`
   }
 `;
 
-export const NotificationItem = styled.button`
+export const NotificationItem = styled.section`
   display: flex;
 
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 100%;
-  border: none;
-  background: ${colors.grey400};
-
-  width: clamp(2.75rem, 2vw, 3.125rem);
-  height: clamp(2.75rem, 2vh, 3.125rem);
-
-  min-width: 2.75rem;
-  min-height: 2.75rem;
-
-  .notification-icon-mobile {
-    display: block;
-  }
-
-  .notification-icon {
+  .notification-button-desktop {
     display: none;
+
+    @media (${device.laptop}) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+
+      width: clamp(2.75rem, 2vw, 3.125rem);
+      height: clamp(2.75rem, 2vh, 3.125rem);
+
+      min-width: 2.75rem;
+      min-height: 2.75rem;
+  
+      &:hover {
+        border-radius: 100%;
+        border: none;
+        background: ${colors.grey400};
+        cursor: pointer;
+      }
+  
+      .notification-icon-mobile {
+        display: none;
+      }
+  
+      .notification-icon {
+        display: block;
+      }
+    }
   }
 
-  @media (${device.laptop}) {
-    background: none;
-    
-    min-width: 0px;
-    min-height: 0px;
+  .notification-button-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    border: none;
+    background: ${colors.grey400};
 
-    width: fit-content;
-    height: fit-content;
+    width: clamp(2.75rem, 2vw, 3.125rem);
+    height: clamp(2.75rem, 2vh, 3.125rem);
+
+    min-width: 2.75rem;
+    min-height: 2.75rem;
 
     .notification-icon-mobile {
-      display: none;
+      display: block;
     }
 
     .notification-icon {
-      display: block;
+      display: none;
+    }
+
+    @media (${device.laptop}) {
+      display: none;
     }
   }
+
+  
 `;
 
 export const AvatarItem = styled.section`
