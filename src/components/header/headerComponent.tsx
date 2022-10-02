@@ -9,15 +9,21 @@ import useNotificationsStore from "@stores/notifications";
 import useSideBarStore from "@stores/sideBar"
 import { AvatarItem, HeaderContainer, ItemsContainer, NavButton, NotificationItem } from "./headerStyle";
 import NotificationPopUpComponent from "./notificationPopUp/notificationPopUpComponent"
+import ProfilePopUpComponent from './profilePopUp/profilePopUpComponent'
 
 export default function HeaderComponent() {
   const notifications = useNotificationsStore((state) => state.notifications);
   const toggleSideBar = useSideBarStore((state) => state.toggleSideBar);
 
   const [ isNotificationPopUpOpen, setIsNotificationPopUpOpen ] = useState(false);
+  const [ isProfilePopUpOpen, setIsProfilePopUpOpen ] = useState(false);
 
   const toggleNotificationPopUp = () => {
     setIsNotificationPopUpOpen(!isNotificationPopUpOpen);
+  }
+
+  const toggleProfilePopUp = () => {
+    setIsProfilePopUpOpen(!isProfilePopUpOpen);
   }
 
   return (
@@ -38,7 +44,8 @@ export default function HeaderComponent() {
         <div className="item-divisor"></div>
         <AvatarItem>
           <img className="user-avatar" src="https://im.indiatimes.in/content/2020/Oct/Keanu-Reeves-as-Neo-in-Matrix1_5f9bc1284584e.jpg?w=725&h=452&cc=1"/>
-          <BsChevronDown className="avatar-arrow"/>
+          <BsChevronDown className="avatar-arrow" onClick={() => toggleProfilePopUp()}/>
+          {isProfilePopUpOpen && <ProfilePopUpComponent/>}
         </AvatarItem>
       </ItemsContainer>
     </HeaderContainer>
