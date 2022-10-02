@@ -14,7 +14,7 @@ export default function HeaderComponent() {
   const notifications = useNotificationsStore((state) => state.notifications);
   const toggleSideBar = useSideBarStore((state) => state.toggleSideBar);
 
-  const [ isNotificationPopUpOpen, setIsNotificationPopUpOpen ] = useState(true);
+  const [ isNotificationPopUpOpen, setIsNotificationPopUpOpen ] = useState(false);
 
   const toggleNotificationPopUp = () => {
     setIsNotificationPopUpOpen(!isNotificationPopUpOpen);

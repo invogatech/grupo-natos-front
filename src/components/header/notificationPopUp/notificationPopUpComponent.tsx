@@ -58,10 +58,10 @@ export default function NotificationPopUpComponent({ closeNotificationPopUp }: N
         </Menu>
         <NotificationsSection>
           {monthsWithNotifications.map((month) => (
-            <MonthlyNotificationsSection>
+            <MonthlyNotificationsSection key={Math.random()}>
               <p className="notifications-month">{month.month} {month.year}</p>
             {filterNotifications(month.month, month.year).map((notification) => (
-              <NotificationItem>
+              <NotificationItem key={notification.id}>
                 <section className="notification-icon-section">
                 <NotificationBell className="notification-icon"/>
                 </section>
