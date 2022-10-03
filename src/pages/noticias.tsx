@@ -5,15 +5,15 @@ import type { NextPage } from 'next'
 import useSideBarStore from '@stores/sideBar'
 
 
-const Home: NextPage = () => {
-  const isSideBarOpen = useSideBarStore((state) => state.isSideBarOpen);
+const Noticias: NextPage = () => {
+  const setCurrentPage = useSideBarStore((state) => state.setCurrentPage);
+  setCurrentPage('noticias')
 
   return (
     <Wrapper>
-      <SideBarComponent/>
-      <HeaderComponent/>
+      <h1>Noticias</h1>
     </Wrapper>
   )
 }
 
-export default Home
+export default Noticias

@@ -12,7 +12,7 @@ const useSideBarStore = create<State>((set) => ({
 
   toggleSideBar: () => set((state) => ({ isSideBarOpen: !state.isSideBarOpen })),
 
-  currentPage: 'Notícias',
+  currentPage: '',
 
   setCurrentPage: (page: string) => set(() => ({ currentPage: page })),
 }));

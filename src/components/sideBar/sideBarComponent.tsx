@@ -7,35 +7,43 @@ import ExtratosIcon from "@public/assets/extratos.svg";
 import PendenciasIcon from "@public/assets/pendencias.svg";
 import { MenuContainer, MenuItem, Overlay, SideBarContainer, Wrapper } from "./sideBarStyle";
 import useSideBarStore from "@stores/sideBar";
+import { useRouter } from "next/router";
 
 export default function SideBarComponent() {
   const isSidebarOpen = useSideBarStore((state) => state.isSideBarOpen);
   const toggleSideBar = useSideBarStore((state) => state.toggleSideBar);
   const currentPage = useSideBarStore((state) => state.currentPage);
-  const setCurrentPage = useSideBarStore((state) => state.setCurrentPage);
+
+  const router = useRouter();
 
   const menuItems = [
     {
+      id: "noticias",
       name: "Notícias",
       icon: <NoticiasIcon className="icon"/>,
     },
     {
+      id: "notificacoes",
       name: "Notificações",
       icon: <NotificacoesIcon className="icon"/>,
     },
     {
+      id: "empreendimento",
       name: "Empreendimento",
       icon: <EmpreendimentoIcon className="icon"/>,
     },
     {
+      id: "boletos",
       name: "Boletos",
       icon: <BoletosIcon className="icon"/>,
     },
     {
+      id: "extratos",
       name: "Extratos",
       icon: <ExtratosIcon className="icon"/>,
     },
     {
+      id: "pendencias",
       name: "Pendências",
       icon: <PendenciasIcon className="icon"/>,
     },
@@ -48,8 +56,8 @@ export default function SideBarComponent() {
         <MenuContainer>
           <p>MENU</p>
           {menuItems.map((item) => (
-            <MenuItem key={Math.random()} className={currentPage == item.name ? "active" : "deactive" }>
-              <div className="item-information" onClick={() => setCurrentPage(item.name)}>
+            <MenuItem key={Math.random()} className={currentPage == item.id ? "active" : "deactive" } onClick={() => router.push(item.id)}>
+              <div className="item-information">
                 <div className="active-marker"></div>
                 {item.icon}
                 <p unselectable="on">{item.name}</p>
