@@ -3,19 +3,22 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex; 
+
   position: absolute;
-  width: 432px;
-  max-height: 85vh;
-  height: fit-content;
   top: 70px;
   right: 120px;
 
+  width: 432px;
+  max-height: 85vh;
+  height: fit-content;
+  
   z-index: 100;
 `;
 
 export const Container = styled.section`
   display: flex;
   flex-direction: column;
+
   width: 100%;
   height: 100%;
   max-height: 85vh;
@@ -30,13 +33,15 @@ export const Container = styled.section`
   &::before {
 	content: '';
 	position: absolute;
+
 	width: 0;
 	height: 0;
+
 	bottom: 100%;
 	right: 2.2em;
+
 	border: .75rem solid transparent;
 	border-top: none;
-
 	border-bottom-color: #fff;
   }
 `;
@@ -51,12 +56,14 @@ export const Header = styled.header`
 
 export const Menu = styled.section`
   display: flex;
+
   gap: 3rem;
   padding: 0 1.9375rem 0.875rem 1.9375rem;
-  width: auto;
   margin-left: -1.9375rem;
   margin-right: -1.9375rem;
 
+  width: auto;
+  
   border-bottom: 2px solid ${colors.grey400};
 
   p {
@@ -78,6 +85,7 @@ export const Menu = styled.section`
 export const NotificationsSection = styled.section`
   display: flex;
   flex-direction: column;
+
   gap: 1.3125rem;
 
   margin-left: -1.9375rem;
@@ -110,6 +118,7 @@ export const NotificationsSection = styled.section`
 export const MonthlyNotificationsSection = styled.section`
   display: flex;
   flex-direction: column;
+
   gap: 1.3125rem;
 
   .notifications-month {
@@ -122,22 +131,28 @@ export const MonthlyNotificationsSection = styled.section`
 
 export const NotificationItem = styled.section`
   display: flex;
-  gap: 1rem;
   align-items: flex-start;
+
+  gap: 1rem;
 
   border-bottom: 1px solid ${colors.grey400};
   padding-bottom: 1.3125rem;
 
   .notification-icon-section {
     display: flex;
+  
     align-items: center;
     justify-content: center;
+
     background: ${colors.transparentBlue};
+
     width: 2.25rem;
     height: 2.25rem;
     min-width: 2.25rem;
     min-height: 2.25rem;
+
     border-radius: 100%;
+
     margin-left: 1.9375rem;
 
     .notification-icon {
@@ -150,16 +165,20 @@ export const NotificationItem = styled.section`
   .notification-info-section {
     display: flex;
     flex-direction: column;
+
     margin-right: 1.9375rem;
-    width: 100%;
+
     gap: 0.4375rem;
+
+    width: 100%;
 
     .notification-info-header {
       display: flex;
+
       justify-content: space-between;
       align-items: center;
+
       width: 100%;
-      align-items: center;
 
       .notification-title {
         color: black;
@@ -184,6 +203,7 @@ export const NotificationItem = styled.section`
 export const Overlay = styled.div`
   width: 100vw;
   height: 100vh;
+  
   position: absolute;
   top: 0;
   right: 0%;
