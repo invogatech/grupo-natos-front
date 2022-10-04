@@ -9,7 +9,7 @@ export const Container = styled.div`
     flex-direction: column;
 
     position: absolute;
-    top: 70px;
+    top: 80px;
     right: 20px;
 
     width: 12.5rem;
@@ -18,7 +18,7 @@ export const Container = styled.div`
     border-radius: 0.5rem;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 
-    z-index: 100;
+    z-index: 997;
     
 
     .edit-profile-section {

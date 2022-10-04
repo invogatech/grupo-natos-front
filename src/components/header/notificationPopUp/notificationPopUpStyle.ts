@@ -5,14 +5,14 @@ export const Wrapper = styled.div`
   display: flex; 
 
   position: absolute;
-  top: 70px;
-  right: 120px;
+  top: 80px;
+  right: 125px;
 
   width: 432px;
   max-height: 85vh;
   height: fit-content;
   
-  z-index: 100;
+  z-index: 999;
 `;
 
 export const Container = styled.section`
@@ -29,6 +29,8 @@ export const Container = styled.section`
   border-radius: 1.25rem;
 
   gap: 1.1875rem;
+
+  z-index: 999;
 
   &::before {
 	content: '';

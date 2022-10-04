@@ -49,6 +49,11 @@ export default function SideBarComponent() {
     },
   ];
 
+  const handleChangePage = (page: string) => {
+    router.push(`/${page}`);
+    toggleSideBar();
+  };
+
   return (
     <Wrapper  className={isSidebarOpen ? "open" : "closed"} >
       <SideBarContainer>
@@ -56,7 +61,7 @@ export default function SideBarComponent() {
         <MenuContainer>
           <p>MENU</p>
           {menuItems.map((item) => (
-            <MenuItem key={Math.random()} className={currentPage == item.id ? "active" : "deactive" } onClick={() => router.push(item.id)}>
+            <MenuItem key={Math.random()} className={currentPage == item.id ? "active" : "deactive" } onClick={() => handleChangePage(item.id)}>
               <div className="item-information">
                 <div className="active-marker"></div>
                 {item.icon}

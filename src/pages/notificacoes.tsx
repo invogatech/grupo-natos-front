@@ -1,6 +1,7 @@
 import { Wrapper } from '@styles/pages'
 import type { NextPage } from 'next'
 import useSideBarStore from '@stores/sideBar'
+import { MainWrapper } from '@styles/globals';
 
 
 const Notificacoes: NextPage = () => {
@@ -8,9 +9,9 @@ const Notificacoes: NextPage = () => {
   setCurrentPage('notificacoes')
 
   return (
-    <Wrapper>
+    <MainWrapper>
       <h1>Notificacoes</h1>
-    </Wrapper>
+    </MainWrapper>
   )
 }
 

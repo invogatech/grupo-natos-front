@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import { colors, fontSize } from '@styles/variables'
+import { colors, device, fontSize } from '@styles/variables'
 import { darken } from 'polished';
 
 const GlobalStyle = createGlobalStyle` 
@@ -134,8 +134,56 @@ export const SubTitle = styled.h2`
   line-height: 150%;
 `;
 
+export const SectionTitle = styled.h2`
+  color: black;
+  font-size: ${fontSize.sectionTitleMobile};
+
+  @media (${device.laptop}) {
+    font-size: ${fontSize.sectionTitle};
+  }
+`;
+
 export const Paragraph = styled.p`
   color: ${colors.textGrey};
   font-size: ${fontSize.paragraph};
   line-height: 150%;
+`;
+
+export const MainWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  z-index: 0;
+
+  padding: 0rem 1.75rem;
+
+  @media (${device.laptop}) {
+    padding: 1.75rem 1.75rem;
+  }
+`;
+
+export const TitleSection = styled.section`
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+
+  margin-bottom: 1rem;
+
+  gap: 1rem;
+
+  @media (${device.laptop}) {
+    margin-bottom: 2.625rem;
+    max-width: 78%;
+    align-items: center;
+    height: fit-content;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  @media (${device.desktop}) {
+    max-width: 85%;
+  }
 `;

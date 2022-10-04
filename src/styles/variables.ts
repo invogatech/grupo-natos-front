@@ -51,4 +51,6 @@ export const fontSize = {
   small: 'clamp(0.7rem, 1.5vw, 0.75rem)',
   button: 'clamp(0.975rem, 2vw, 1.125rem)',
   input: 'clamp(0.975rem, 2vw, 1.125rem)',
+  sectionTitle: 'clamp(1.675rem, 2.5vw, 1.875rem)',
+  sectionTitleMobile: 'clamp(1.375em, 3.5vw, 1.5rem)',
 }

@@ -1,6 +1,7 @@
 import { Wrapper } from '@styles/pages'
 import type { NextPage } from 'next'
 import useSideBarStore from '@stores/sideBar'
+import { MainWrapper } from '@styles/globals';
 
 
 const Empreendimento: NextPage = () => {
@@ -8,9 +9,9 @@ const Empreendimento: NextPage = () => {
   setCurrentPage('empreendimento')
 
   return (
-    <Wrapper>
+    <MainWrapper>
       <h1>Empreendimento</h1>
-    </Wrapper>
+    </MainWrapper>
   )
 }
 

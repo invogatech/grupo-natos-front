@@ -6,19 +6,28 @@ export const HeaderContainer = styled.div`
   display: flex;
 
   justify-content: space-between;
-  align-items: center;
 
-  height: 3.25rem;
+
   width: 100%;
+  height: fit-content;
 
-  padding: 2.75rem 1.75rem;
+  padding: 1.75rem 1.75rem;
 
   background: none;
 
+  z-index: 1;
+
   @media (${device.laptop}) {
+    max-width: 20vw;
     position: fixed;
     right: 0;
+    top: 0;
+
+    padding: 1.75rem 1.75rem;
+
     width: fit-content;
+
+
   }
 `;
 
@@ -32,11 +41,11 @@ export const NavButton = styled.button`
   border: none;
   background: ${colors.grey400};
 
-  width: clamp(2.75rem, 2vw, 3.125rem);
-  height: clamp(2.75rem, 2vh, 3.125rem);
+  width: clamp(3rem, 2vw, 3.125rem);
+  height: clamp(3rem, 2vh, 3.125rem);
 
-  min-width: 2.75rem;
-  min-height: 2.75rem;
+  min-width: 3rem;
+  min-height: 3rem;
 
   .icon {
     color: black;
@@ -83,11 +92,11 @@ export const NotificationItem = styled.section`
       justify-content: center;
       background: none;
 
-      width: clamp(2.75rem, 2vw, 3.125rem);
-      height: clamp(2.75rem, 2vh, 3.125rem);
+      width: clamp(3rem, 2vw, 3.25rem);
+      height: clamp(3rem, 2vh, 3.25rem);
 
-      min-width: 2.75rem;
-      min-height: 2.75rem;
+      min-width: 3rem;
+      min-height: 3rem;
   
       &:hover {
         border-radius: 100%;
@@ -114,11 +123,11 @@ export const NotificationItem = styled.section`
     border: none;
     background: ${colors.grey400};
 
-    width: clamp(2.75rem, 2vw, 3.125rem);
-    height: clamp(2.75rem, 2vh, 3.125rem);
+    width: clamp(3rem, 2vw, 3.25rem);
+    height: clamp(3rem, 2vh, 3.25rem);
 
-    min-width: 2.75rem;
-    min-height: 2.75rem;
+    min-width: 3rem;
+    min-height: 3rem;
 
     .notification-icon-mobile {
       display: block;
@@ -143,11 +152,11 @@ export const AvatarItem = styled.section`
 
   .user-avatar {
     object-fit: cover;
-    width: clamp(2.75rem, 2vw, 3.125rem);
-    height: clamp(2.75rem, 2vh, 3.125rem);
+    width: clamp(3rem, 2vw, 3.125rem);
+    height: clamp(3rem, 2vh, 3.125rem);
 
-    min-width: 2.75rem;
-    min-height: 2.75rem;
+    min-width: 3rem;
+    min-height: 3rem;
 
     border-radius: 100%;
 

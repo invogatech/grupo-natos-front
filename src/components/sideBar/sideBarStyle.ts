@@ -10,6 +10,8 @@ export const Wrapper = styled.div`
 
   position: absolute;
 
+  z-index: 999;
+
   &.closed {
     left: -100%;
     transition: left 0.5s ease-in-out;
