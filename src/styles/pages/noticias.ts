@@ -8,31 +8,20 @@ export const LastNewsGrid = styled.div`
 
   margin-right: -1.75rem;
 
-  /* width */
   ::-webkit-scrollbar {
-      width: 5px;
-  }
-
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888;
-  }
-
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+      height: 8px;
   }
 
   @media (${device.laptop}) {
     display: flex;
-    justify-content: center;
-    gap: 3.125rem;
+    gap: 0.9375rem;
     margin-right: 0;
+    padding-bottom: 10px;
+  }
+
+  @media (${device.desktopL}) {
+    padding-bottom: 0px;
+    justify-content: center;
   }
 `;
 
@@ -52,9 +41,19 @@ export const OldNewsGrid = styled.section`
   flex-direction: column;
   gap: 0.6875rem;
 
+  ::-webkit-scrollbar {
+      height: 8px;
+  }
+
   @media (${device.laptop}) {
     flex-direction: row;
+    overflow-x: auto;
+    gap: 0.9375rem;
+    padding-bottom: 10px;
+  }
+
+  @media (${device.desktopL}) {
+    padding-bottom: 0px;
     justify-content: center;
-    gap: 3.125rem;
   }
 `;

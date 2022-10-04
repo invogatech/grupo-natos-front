@@ -26,8 +26,6 @@ export const HeaderContainer = styled.div`
     padding: 1.75rem 1.75rem;
 
     width: fit-content;
-
-
   }
 `;
 

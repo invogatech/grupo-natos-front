@@ -20,7 +20,7 @@ export const screenSize = {
   tabletL: '801px',
   laptop: '1025px',
   desktop: '1281px',
-  desktopL: '1921px',
+  desktopL: '1919px',
 }
 
 export const device = {

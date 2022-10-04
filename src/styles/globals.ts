@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 16px;
     font-family: 'Marlin Geo SQ', sans-serif;
 
-    @media (${device.laptop}) {
+    @media (${device.desktopL}) {
       overflow-x: hidden;
       overflow-y: hidden;
     }
@@ -164,13 +164,37 @@ export const MainWrapper = styled.div`
 
   padding: 0rem 1.75rem;
 
+  /* width */
+  *::-webkit-scrollbar, ::-webkit-scrollbar {
+      width: 5px;
+  }
+
+  /* Track */
+  *::-webkit-scrollbar-track, ::-webkit-scrollbar {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  *::-webkit-scrollbar-thumb, ::-webkit-scrollbar {
+    background: #888;
+  }
+
+  /* Handle on hover */
+  *::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar {
+    background: #555;
+  }
+
   @media (${device.laptop}) {
     padding: 1.75rem 1.75rem;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
   @media (${device.desktopL}) {
     padding: 1.75rem 10vw;
   }
+
+
 `;
 
 export const TitleSection = styled.section`

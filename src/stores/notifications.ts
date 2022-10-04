@@ -9,7 +9,6 @@ type NotificationType = {
 
 type State = {
   notifications: NotificationType[];
-
 }
 
 const useNotificationsStore = create<State>((set) => ({
