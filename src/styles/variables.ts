@@ -19,7 +19,8 @@ export const screenSize = {
   tablet: '600px',
   tabletL: '801px',
   laptop: '1025px',
-  desktop: '1281px'
+  desktop: '1281px',
+  desktopL: '1921px',
 }
 
 export const device = {
@@ -30,7 +31,7 @@ export const device = {
   tabletL: `min-width: ${screenSize.tabletL}`,
   laptop: `min-width: ${screenSize.laptop}`,
   desktop: `min-width: ${screenSize.desktop}`,
-  desktopL: `min-width: ${screenSize.desktop}`
+  desktopL: `min-width: ${screenSize.desktopL}`
 };
 
 export const landscapeDevice = {
@@ -41,7 +42,7 @@ export const landscapeDevice = {
   tabletL: `min-height: ${screenSize.tabletL}`,
   laptop: `min-height: ${screenSize.laptop}`,
   desktop: `min-height: ${screenSize.desktop}`,
-  desktopL: `min-height: ${screenSize.desktop}`
+  desktopL: `min-height: ${screenSize.desktopL}`
 }
 
 export const fontSize = {

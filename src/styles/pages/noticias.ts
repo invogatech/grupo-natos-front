@@ -8,9 +8,30 @@ export const LastNewsGrid = styled.div`
 
   margin-right: -1.75rem;
 
+  /* width */
+  ::-webkit-scrollbar {
+      width: 5px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
   @media (${device.laptop}) {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 3.125rem;
     margin-right: 0;
   }
 `;
@@ -33,7 +54,7 @@ export const OldNewsGrid = styled.section`
 
   @media (${device.laptop}) {
     flex-direction: row;
-    justify-content: space-between;
-    gap: 1.25rem;
+    justify-content: center;
+    gap: 3.125rem;
   }
 `;

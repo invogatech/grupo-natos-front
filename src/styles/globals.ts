@@ -19,6 +19,11 @@ const GlobalStyle = createGlobalStyle`
 
     font-size: 16px;
     font-family: 'Marlin Geo SQ', sans-serif;
+
+    @media (${device.laptop}) {
+      overflow-x: hidden;
+      overflow-y: hidden;
+    }
   }
 
   #root {
@@ -161,6 +166,10 @@ export const MainWrapper = styled.div`
 
   @media (${device.laptop}) {
     padding: 1.75rem 1.75rem;
+  }
+
+  @media (${device.desktopL}) {
+    padding: 1.75rem 10vw;
   }
 `;
 
