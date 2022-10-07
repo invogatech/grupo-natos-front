@@ -11,7 +11,7 @@ export const SearchBarContainer = styled.div`
   padding: 1.0625rem 1.375rem;
 
   @media (${device.laptop}) {
-    padding: 0.9375rem 1.1875rem;
+    padding: 0.7375rem 1.1875rem;
     max-width: clamp(18rem, 20vw, 20.25rem);
     width: 100%;
   }

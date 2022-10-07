@@ -17,11 +17,12 @@ export const LastNewsGrid = styled.div`
     gap: 0.9375rem;
     margin-right: 0;
     padding-bottom: 10px;
+    justify-content: space-between;
   }
 
   @media (${device.desktopL}) {
     padding-bottom: 0px;
-    justify-content: center;
+    justify-content: space-between;
   }
 `;
 
@@ -31,8 +32,9 @@ export const NewsContainer = styled.section`
 
   gap: 1.4375rem;
 
-  @media (${device.laptop}) {
-    gap: 2.1875rem;
+  @media (${device.desktopL}) {
+    width: 100%;
+    justify-content: center;
   }
 `;
 
@@ -50,10 +52,11 @@ export const OldNewsGrid = styled.section`
     overflow-x: auto;
     gap: 0.9375rem;
     padding-bottom: 10px;
+    justify-content: space-between;
   }
 
   @media (${device.desktopL}) {
     padding-bottom: 0px;
-    justify-content: center;
+    justify-content: space-between;
   }
 `;

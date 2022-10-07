@@ -5,7 +5,8 @@ import EmpreendimentoIcon from "@public/assets/empreendimento.svg";
 import BoletosIcon from "@public/assets/boletos.svg";
 import ExtratosIcon from "@public/assets/extratos.svg";
 import PendenciasIcon from "@public/assets/pendencias.svg";
-import { MenuContainer, MenuItem, Overlay, SideBarContainer, Wrapper } from "./sideBarStyle";
+import { AiOutlineDoubleRight } from "react-icons/ai"
+import { Sidebar } from "./sideBarStyle";
 import useSideBarStore from "@stores/sideBar";
 import { useRouter } from "next/router";
 
@@ -20,58 +21,65 @@ export default function SideBarComponent() {
     {
       id: "noticias",
       name: "Notícias",
-      icon: <NoticiasIcon className="icon"/>,
+      icon: <NoticiasIcon className="item-icon"/>,
     },
     {
       id: "notificacoes",
       name: "Notificações",
-      icon: <NotificacoesIcon className="icon"/>,
+      icon: <NotificacoesIcon className="item-icon"/>,
     },
     {
       id: "empreendimento",
       name: "Empreendimento",
-      icon: <EmpreendimentoIcon className="icon"/>,
+      icon: <EmpreendimentoIcon className="item-icon"/>,
     },
     {
       id: "boletos",
       name: "Boletos",
-      icon: <BoletosIcon className="icon"/>,
+      icon: <BoletosIcon className="item-icon"/>,
     },
     {
       id: "extratos",
       name: "Extratos",
-      icon: <ExtratosIcon className="icon"/>,
+      icon: <ExtratosIcon className="item-icon"/>,
     },
     {
       id: "pendencias",
       name: "Pendências",
-      icon: <PendenciasIcon className="icon"/>,
+      icon: <PendenciasIcon className="item-icon"/>,
     },
   ];
 
   const handleChangePage = (page: string) => {
     router.push(`/${page}`);
-    toggleSideBar();
+
+    if (isSidebarOpen) {
+      toggleSideBar();
+    }
   };
 
+  console.log(isSidebarOpen)
+
   return (
-    <Wrapper  className={isSidebarOpen ? "open" : "closed"} >
-      <SideBarContainer>
-        <Logo className="logo"/>
-        <MenuContainer>
-          <p>MENU</p>
-          {menuItems.map((item) => (
-            <MenuItem key={Math.random()} className={currentPage == item.id ? "active" : "deactive" } onClick={() => handleChangePage(item.id)}>
-              <div className="item-information">
-                <div className="active-marker"></div>
-                {item.icon}
-                <p unselectable="on">{item.name}</p>
-              </div>
-            </MenuItem>
-          ))}
-        </MenuContainer>
-      </SideBarContainer>
-      <Overlay  className={isSidebarOpen ? "open" : "closed"} onClick={() => toggleSideBar()}/>
-    </Wrapper>
+    <Sidebar className={isSidebarOpen ? "open" : "closed"}>
+      <div className="logo-details">
+        <Logo className={`logo ${isSidebarOpen ? "open" : "closed"}`}/>
+        <AiOutlineDoubleRight className={`toggle-icon ${isSidebarOpen ? "open" : "closed"}`} onClick={() => toggleSideBar()} />
+      </div>
+      <ul className="nav-list">
+        {menuItems.map((item) => (
+          <li
+            key={item.id}
+            className={`nav-item ${currentPage === item.id ? "active" : ""}`}
+            onClick={() => handleChangePage(item.id)}
+          >
+            <div className="item-information">
+              {item.icon}
+              <span className="item-name">{item.name}</span>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </Sidebar>
   );
 }

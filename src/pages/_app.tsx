@@ -4,7 +4,7 @@ import type { AppProps } from 'next/app'
 import '@styles/fonts.css';
 import SideBarComponent from '@components/sideBar/sideBarComponent';
 import HeaderComponent from '@components/header/headerComponent';
-import { Wrapper } from '@styles/pages';
+import { MainContainer, Wrapper } from '@styles/pages';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -12,13 +12,16 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Wrapper>
       <GlobalStyle/>
-      {router.asPath !== '/signIn' && (
+      {router.asPath !== '/signIn' ? (
         <>
           <SideBarComponent/>
-          <HeaderComponent/>
+          <MainContainer>
+            <HeaderComponent/>
+            <Component {...pageProps} />
+          </MainContainer>
         </>
-      )}
-      <Component {...pageProps} />
+      ): <Component {...pageProps} />}
+      
     </Wrapper>
   )
 }

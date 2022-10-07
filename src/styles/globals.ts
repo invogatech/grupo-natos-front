@@ -24,6 +24,26 @@ const GlobalStyle = createGlobalStyle`
       overflow-x: hidden;
       overflow-y: hidden;
     }
+
+    /* width */
+    *::-webkit-scrollbar, ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    /* Track */
+    *::-webkit-scrollbar-track, ::-webkit-scrollbar {
+      background: #f1f1f1;
+    }
+
+    /* Handle */
+    *::-webkit-scrollbar-thumb, ::-webkit-scrollbar {
+      background: #888;
+    }
+
+    /* Handle on hover */
+    *::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar {
+      background: #555;
+    }
   }
 
   #root {
@@ -164,34 +184,13 @@ export const MainWrapper = styled.div`
 
   padding: 0rem 1.75rem;
 
-  /* width */
-  *::-webkit-scrollbar, ::-webkit-scrollbar {
-      width: 5px;
-  }
-
-  /* Track */
-  *::-webkit-scrollbar-track, ::-webkit-scrollbar {
-    background: #f1f1f1;
-  }
-
-  /* Handle */
-  *::-webkit-scrollbar-thumb, ::-webkit-scrollbar {
-    background: #888;
-  }
-
-  /* Handle on hover */
-  *::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar {
-    background: #555;
-  }
-
   @media (${device.laptop}) {
     padding: 1.75rem 1.75rem;
-    overflow-y: auto;
-    overflow-x: hidden;
   }
 
   @media (${device.desktopL}) {
     padding: 1.75rem 10vw;
+    justify-content: center;
   }
 
 
@@ -216,7 +215,7 @@ export const TitleSection = styled.section`
     justify-content: space-between;
   }
 
-  @media (${device.desktop}) {
+  @media (${device.desktopL}) {
     max-width: 85%;
   }
 `;

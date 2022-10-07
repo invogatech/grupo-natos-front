@@ -10,5 +10,16 @@ export const Wrapper = styled.div`
 
   @media (${device.laptop}) {
     flex-direction: row;
+    overflow-x: hidden;
+    overflow-y: hidden;
   }
+`;
+
+export const MainContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  overflow-y: auto;
 `;

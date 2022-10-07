@@ -18,14 +18,11 @@ export const HeaderContainer = styled.div`
   z-index: 1;
 
   @media (${device.laptop}) {
-    max-width: 20vw;
-    position: fixed;
-    right: 0;
-    top: 0;
+    padding: 1rem 1.75rem 0 1.75rem;
+    width: 100%;
+    height: fit-content;
 
-    padding: 1.75rem 1.75rem;
-
-    width: fit-content;
+    justify-content: flex-end;
   }
 `;
 
