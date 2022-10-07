@@ -6,8 +6,7 @@ export const HeaderContainer = styled.div`
   display: flex;
 
   justify-content: space-between;
-
-
+  
   width: 100%;
   height: fit-content;
 
@@ -18,14 +17,8 @@ export const HeaderContainer = styled.div`
   z-index: 1;
 
   @media (${device.laptop}) {
-    max-width: 20vw;
-    position: fixed;
-    right: 0;
-    top: 0;
-
-    padding: 1.75rem 1.75rem;
-
-    width: fit-content;
+    padding: 1rem 1.75rem 0 1.75rem;
+    height: fit-content;
   }
 `;
 
@@ -48,9 +41,37 @@ export const NavButton = styled.button`
   .icon {
     color: black;
   }
+  
+  .natos-logo {
+    display: none;
+  }
 
   @media (${device.laptop}) {
-    display: none;
+    display: flex;
+    justify-content: flex-start;
+
+    height: 60px;
+    width: 16.375rem;
+
+    background: ${colors.darkGrey};
+    border-radius: 0;
+
+    gap: 1.25rem;
+    padding-left: 1.75rem;
+
+    margin-top: -1rem;
+    margin-left: -1.75rem;
+    
+    .icon {
+      color: white;
+      width: 20px;
+      height: 20px;
+    }
+
+    .natos-logo {
+      display: block;
+      width: 80px;
+    }
   }
 `;
 
@@ -67,6 +88,9 @@ export const ItemsContainer = styled.section`
   }
 
   @media (${device.laptop}) {
+    height: 100%;
+    width: fit-content;
+          
     .item-divisor {
       width: 1px;
       height: 2.25rem;

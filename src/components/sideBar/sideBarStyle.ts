@@ -14,26 +14,32 @@ export const Wrapper = styled.div`
 
   &.closed {
     left: -100%;
+    top: 0;
     transition: left 0.5s ease-in-out;
   }
 
   &.open {
     left: 0;
+    top: 0;
     transition: left 0.5s ease-in-out;
   }
 
   @media (${device.laptop}) {
+    z-index: 0;
+    height: 100%;
+    width: fit-content;
+    position: relative;
+    transition: 0.5s ease-in-out;
+
     &.closed {
-      left: inherit
+      left: none;
+      top: none;
     }
 
     &.open {
-      left: inherit
+      left: none;
+      top: none;
     }
-
-    width: fit-content;
-
-    position: relative;
   }
 `;
 
@@ -52,7 +58,19 @@ export const SideBarContainer = styled.div`
   gap: 3.4375rem;
 
   @media (${device.laptop}) {
-    width: 16.375rem;
+    .logo {
+      display: none;
+    }
+
+    &.closed {
+      width: 0;
+      transition: width 0.5s ease-in-out;
+    }
+
+    &.open {
+      width: 16.375rem;
+      transition: width 0.5s ease-in-out;
+    }
   }
 `;
 

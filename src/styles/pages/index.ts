@@ -1,4 +1,3 @@
-import { device } from "@styles/variables";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
@@ -7,8 +6,10 @@ export const Wrapper = styled.div`
 
   width: 100vw;
   height: 100vh;
+`;
 
-  @media (${device.laptop}) {
-    flex-direction: row;
-  }
+export const Container = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
 `;

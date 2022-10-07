@@ -1,3 +1,4 @@
+import Logo from "@public/assets/LogoNatos.svg";
 import { useState } from 'react'
 import { AiOutlineMenu } from "react-icons/ai"
 import { BsChevronDown } from "react-icons/bs"
@@ -14,6 +15,7 @@ import ProfilePopUpComponent from './profilePopUp/profilePopUpComponent'
 export default function HeaderComponent() {
   const notifications = useNotificationsStore((state) => state.notifications);
   const toggleSideBar = useSideBarStore((state) => state.toggleSideBar);
+  const isSidebarOpen = useSideBarStore((state) => state.isSideBarOpen);
 
   const [ isNotificationPopUpOpen, setIsNotificationPopUpOpen ] = useState(false);
   const [ isProfilePopUpOpen, setIsProfilePopUpOpen ] = useState(false);
@@ -28,8 +30,9 @@ export default function HeaderComponent() {
 
   return (
     <HeaderContainer>
-      <NavButton onClick={() => toggleSideBar()}>
+      <NavButton onClick={() => toggleSideBar()} className={isSidebarOpen ? "sidebar-open" : "sidebar-closed"}>
         <AiOutlineMenu className="icon"/>
+        <Logo className="natos-logo"/>
       </NavButton>
       <ItemsContainer>
         <NotificationItem>

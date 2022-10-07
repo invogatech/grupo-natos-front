@@ -55,8 +55,8 @@ export default function SideBarComponent() {
   };
 
   return (
-    <Wrapper  className={isSidebarOpen ? "open" : "closed"} >
-      <SideBarContainer>
+    <Wrapper className={isSidebarOpen ? "open" : "closed"} >
+      <SideBarContainer className={isSidebarOpen ? "open" : "closed"}>
         <Logo className="logo"/>
         <MenuContainer>
           <p>MENU</p>

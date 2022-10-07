@@ -16,10 +16,6 @@ const Noticias: NextPage = () => {
 
   return (
     <MainWrapper>
-      <TitleSection>
-        <Title>Olá, Rodrigo!</Title>
-        <SearchBarComponent />
-      </TitleSection>
       <NewsContainer>
         <LastNewsGrid>
           <LastNewsComponent/>
