@@ -63,6 +63,16 @@ export const ItemsContainer = styled.section`
     display: none;
   }
 
+  .search-bar {
+    display: none;
+
+    @media (${device.laptop}) {
+      display: flex;
+    }
+  }
+
+
+
   @media (${device.laptop}) {
     .item-divisor {
       width: 1px;

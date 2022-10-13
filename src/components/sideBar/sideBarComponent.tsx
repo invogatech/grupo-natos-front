@@ -58,10 +58,8 @@ export default function SideBarComponent() {
     }
   };
 
-  console.log(isSidebarOpen)
-
   return (
-    <Sidebar className={isSidebarOpen ? "open" : "closed"}>
+    <Sidebar className={isSidebarOpen ? "open" : "closed"} id="sidebar">
       <div className="logo-details">
         <Logo className={`logo ${isSidebarOpen ? "open" : "closed"}`}/>
         <AiOutlineDoubleRight className={`toggle-icon ${isSidebarOpen ? "open" : "closed"}`} onClick={() => toggleSideBar()} />
