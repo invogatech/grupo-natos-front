@@ -11,6 +11,7 @@ import { AvatarItem, HeaderContainer, ItemsContainer, NavButton, NotificationIte
 import NotificationPopUpComponent from "./notificationPopUp/notificationPopUpComponent"
 import ProfilePopUpComponent from './profilePopUp/profilePopUpComponent'
 import SearchBarComponent from '@components/searchBar/searchBarComponent'
+import { useRouter } from 'next/router'
 
 export default function HeaderComponent() {
   const notifications = useNotificationsStore((state) => state.notifications);
@@ -27,13 +28,15 @@ export default function HeaderComponent() {
     setIsProfilePopUpOpen(!isProfilePopUpOpen);
   }
 
+  const router = useRouter();
+
   return (
     <HeaderContainer>
       <NavButton onClick={() => toggleSideBar()}>
         <AiOutlineMenu className="icon"/>
       </NavButton>
       <ItemsContainer>
-        <SearchBarComponent />
+        {router.asPath == "/noticias" && <SearchBarComponent />}
         <NotificationItem>
           <div className="notification-button-mobile">
             {notifications.length == 0 ? (<NotificationBellEmpty className="notification-icon-mobile"/>) : (<NotificationBellNew className="notification-icon-mobile"/>)}

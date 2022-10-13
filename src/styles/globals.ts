@@ -181,7 +181,7 @@ export const MainWrapper = styled.div`
   height: 100%;
 
   z-index: 0;
-
+  
   padding: 0rem 1.75rem;
 
   @media (${device.laptop}) {

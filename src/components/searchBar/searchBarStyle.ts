@@ -2,9 +2,6 @@ import { colors, device } from '@styles/variables';
 import styled from 'styled-components';
 
 export const SearchBarContainer = styled.div`
-  display: none;
-
-
   background: ${colors.grey400};
   border-radius: 30px;
 

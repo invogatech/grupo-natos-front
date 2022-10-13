@@ -143,6 +143,7 @@ export const Sidebar = styled.div`
           font-size: 15px;
           white-space: nowrap;
           opacity: 0;
+          width: 0;
           pointer-events: none;
           transition: 0.2s;
         }

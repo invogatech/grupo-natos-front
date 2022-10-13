@@ -5,6 +5,7 @@ type State = {
   currentPage: string;
   toggleSideBar: () => void;
   setCurrentPage: (page: string) => void;
+  closeSideBar: () => void;
 }
 
 const useSideBarStore = create<State>((set) => ({
@@ -15,6 +16,8 @@ const useSideBarStore = create<State>((set) => ({
   currentPage: '',
 
   setCurrentPage: (page: string) => set(() => ({ currentPage: page })),
+
+  closeSideBar: () => set(() => ({ isSideBarOpen: false })),
 }));
 
 export default useSideBarStore;
