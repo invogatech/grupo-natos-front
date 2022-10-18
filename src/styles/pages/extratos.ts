@@ -2,7 +2,7 @@ import { colors, device } from "@styles/variables";
 import { darken } from "polished";
 import styled from "styled-components";
 
-export const BoletosContainer = styled.div`
+export const ExtratosContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.6875rem;
@@ -57,84 +57,14 @@ export const BoletosContainer = styled.div`
       flex-direction: row;
       justify-content: space-between;
     }
-
-    .filter-div {
-      display: flex;
-      flex-direction: row-reverse;
-      font-size: 0.875rem;
-
-      .boletos__filter {
-        display: flex;
-        position: relative;
-        background: ${colors.grey400};
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        padding: 0.625rem;
-        width: 9.0625rem;
-        border-radius: 1.5625rem;
-
-        &:hover {
-          cursor: pointer;
-        }
-
-        &.open {
-          border-bottom-left-radius: 0;
-          border-bottom-right-radius: 0;
-        }
-
-        .icon {
-          margin-top: 0.1875rem;
-          &.closed {
-            transform: rotate(0);
-            transition: transform 0.3s ease-in-out;
-          }
-
-          &.open {
-            transform: rotate(180deg);
-            transition: transform 0.3s ease-in-out;
-          }
-        }
-
-        .boletos__filter-dropped {
-          &.closed {
-            display: none;
-          }
-
-          &.open {
-            display: block;
-            position: absolute;
-            top: 100%;
-            background: ${colors.grey400};
-            width: 100%;
-            align-items: center;
-            text-align: center;
-            border-bottom-left-radius: 1.5625rem;
-            border-bottom-right-radius: 1.5625rem;
-            padding-bottom: 0.625rem;
-
-            p {
-              padding: 0.625rem;
-
-              &:hover {
-                cursor: pointer;
-                background: ${darken (0.1, colors.grey400)};
-              }
-            }
-          }
-        }
-      }
-    }
   }
 
-  
-
-  .boletos {
+  .extratos {
     display: flex;
     flex-direction: column;
     gap: 1.6875rem;
 
-    .boletos__month {
+    .extratos__month {
 
       border-bottom: 1px solid ${colors.grey400};
       padding-bottom: 1.6875rem;
@@ -149,12 +79,12 @@ export const BoletosContainer = styled.div`
       }
     }
 
-    .boletos__container {
+    .extratos__container {
       display: flex;
       flex-direction: column;
       gap: 1.6875rem;
 
-      .boletos__table-head-desktop {
+      .extratos__table-head-desktop {
         display: none;
 
         @media (${device.laptop}) {
@@ -178,13 +108,33 @@ export const BoletosContainer = styled.div`
                 width: 100%;
                 font-size: 14px;
                 color: ${colors.grey700};
+
+                &.enterprise-number {
+                  width: 30%
+                }
+
+                &.enterprise {
+                  width: 60%;
+                }
+
+                &.contract-number {
+                  width: 30%;
+                }
+
+                &.description-code {
+                  width: 100%;
+                }
+
+                &.piu-code {
+                  width: 100%;
+                }
               }
             }
           }
         }
       }
 
-      .boleto-mobile {
+      .extrato-mobile {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -205,27 +155,26 @@ export const BoletosContainer = styled.div`
           font-size: 0.875rem;
         }
 
-        .boleto__section-1 {
+        .extratos__section-1 {
           display: flex;
           align-items: center;
           gap: 1rem;
           height: 100%;
 
-          .boleto__section-1__text {
+          .extratos__section-1__text {
             display: flex;
-            max-width: 70%;
             flex-direction: column;
             justify-content: space-between;
             gap: 0.5rem;
           }
 
-          .to {
+          .reference {
             font-weight: 600;
-            font-size: 0.75rem;
+            font-size: 1rem;
             color: black;
           }
 
-          .boleto__icon-section {
+          .extratos__icon-section {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -235,14 +184,14 @@ export const BoletosContainer = styled.div`
             height: 2.5rem;
             border-radius: 50%;
 
-            .boleto__icon {
+            .extratos__icon {
               width: 1.5rem;
               height: 1.5rem;
             }
           }
         }
 
-        .boleto__section-2 {
+        .extratos__section-2 {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
@@ -259,7 +208,7 @@ export const BoletosContainer = styled.div`
         }
       }
 
-      .boleto-desktop {
+      .extrato-desktop {
         display: none;
 
         @media (${device.laptop}) {
@@ -286,23 +235,27 @@ export const BoletosContainer = styled.div`
               border-radius: 0.5rem;
               box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
               gap: 1rem;
+              width: 100%;
               td {
                 width: 100%;
 
-                &.boleto__value {
-                  p {
-                    font-size: 14px;
-                  }
+                &.extrato__enterprise-number {
+                  width: 30%;
                 }
 
-                /* &.boleto__to {
-                  width: 120%;
-                } */
+                &.extrato__contract-number {
+                  width: 30%;
+                }
 
-                &.boleto__view-button {
+                &.extrato__reference {
+                  width: 60%;
+                }
+                
+                &.extrato__view-button {
                   display: flex;
                   justify-content: center;
-                  button {
+                  gap: 0.5rem;
+                  .view-button {
                     background: ${colors.mainBlue};
                     border: none;
                     border-radius: 25px;
@@ -312,6 +265,19 @@ export const BoletosContainer = styled.div`
                     &:hover {
                       cursor: pointer;
                       background: ${darken (0.1, colors.mainBlue)};
+                    }
+                  }
+
+                  .irpf-button {
+                    background: ${colors.grey400};
+                    border: none;
+                    border-radius: 25px;
+                    padding: 0.75rem 1.725rem;
+                    font-weight: bold;
+
+                    &:hover {
+                      cursor: pointer;
+                      background: ${darken (0.1, colors.grey400)};
                     }
                   }
                 }
@@ -324,7 +290,7 @@ export const BoletosContainer = styled.div`
 
   }
 
-  .no-boletos {
+  .no-extratos {
     display: flex;
     align-items: center;
     justify-content: center;

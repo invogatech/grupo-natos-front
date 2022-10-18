@@ -134,6 +134,12 @@ export const Sidebar = styled.div`
         text-decoration: none;
         transition: all 0.4s ease;
 
+        .icon-section {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
         .item-icon {
           width: 26px;
           transition: 0.4s;

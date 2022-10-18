@@ -13,15 +13,23 @@ const Boletos: NextPage = () => {
   const setCurrentPage = useSideBarStore((state) => state.setCurrentPage);
   setCurrentPage('boletos')
   const boletos = useBoletosStore((state) => state.boletos);
-  const [ currentEnterprise, setCurrentEnterprise ] = useState(boletos[0].enterprise)
+  const [ currentEnterprise, setCurrentEnterprise ] = useState("")
   const [ currentFilter, setCurrentFilter ] = useState('Todos')
   const [ isFilterOpen, setIsFilterOpen ] = useState(false)
-  
-  const sortedBoletos = boletos.sort(function(a, b) {
-    return b.dueDate.getTime() - a.dueDate.getTime();
-  });
+  const [ sortedBoletos, setSortedBoletos ] = useState(boletos);
+  const [ filteredBoletos, setFilteredBoletos ] = useState(sortedBoletos);
 
-  const [ filteredBoletos, setFilteredBoletos ] = useState(sortedBoletos)
+  useEffect(() => {
+    setSortedBoletos(boletos.sort(function(a, b) {
+      return b.dueDate.getTime() - a.dueDate.getTime();
+    }));
+  }, [boletos])
+
+  useEffect(() => {
+    if (boletos.length > 0) {
+      setCurrentEnterprise(boletos[0].enterprise)
+    }
+  }, [boletos])
 
   const filterBoletos = (filter: string) => {
     switch (filter) {
@@ -79,6 +87,7 @@ const Boletos: NextPage = () => {
     <MainWrapper>
       <BoletosContainer>
         <h1>Seus Boletos</h1>
+        {boletos.length > 0 ? (
         <div className="enterprises">
           {enterprisesWithBoletos.map((enterprise) => (
             <div key={Math.random()} className={`enterprises__item ${currentEnterprise == enterprise.enterprise ? "selected" : ""}`} onClick={() => setCurrentEnterprise(enterprise.enterprise)}>
@@ -86,6 +95,9 @@ const Boletos: NextPage = () => {
             </div>
           ))}
         </div>
+        ) : (
+          null
+        )}
         <div className="search-filter">
           <SearchBarComponent/>
           <div className="filter-div">

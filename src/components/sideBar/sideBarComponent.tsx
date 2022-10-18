@@ -72,7 +72,7 @@ export default function SideBarComponent() {
             onClick={() => handleChangePage(item.id)}
           >
             <div className="item-information">
-              {item.icon}
+              <section className="icon-section">{item.icon}</section>
               <span className="item-name">{item.name}</span>
             </div>
           </li>
