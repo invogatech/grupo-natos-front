@@ -1,70 +1,67 @@
 import type { NextPage } from 'next'
 import useSideBarStore from '@stores/sideBar'
 import { MainWrapper } from '@styles/globals';
-import useExtractsStore from '@stores/extratos';
+import useStatementsStore from '@stores/statements';
 import { useState, useEffect } from 'react';
 import SearchBarComponent from '@components/searchBar/searchBarComponent';
-import { ExtratosContainer } from '@styles/pages/extratos';
+import { StatementsContainer } from '@styles/pages/extratos';
 import { MdOutlineWatchLater } from 'react-icons/md';
 
 const Extratos: NextPage = () => {
   const setCurrentPage = useSideBarStore((state) => state.setCurrentPage);
   setCurrentPage('extratos')
-  const extracts = useExtractsStore((state) => state.extracts);
+  const statements = useStatementsStore((state) => state.statements);
   const [ currentEnterprise, setCurrentEnterprise ] = useState("");
-  const [ sortedExtracts, setSortedExtracts ] = useState(extracts);
+  const [ sortedStatements, setSortedStatements ] = useState(statements);
 
   useEffect(() => {
-    setSortedExtracts(extracts.sort(function(a, b) {
+    setSortedStatements(statements.sort(function(a, b) {
       return b.currentMonth.getTime() - a.currentMonth.getTime();
     }))
-  }, [extracts])
 
-  useEffect(() => {
-    if (extracts.length > 0) {
-      setCurrentEnterprise(extracts[0].enterprise)
+    if (statements.length > 0) {
+      setCurrentEnterprise(statements[0].enterprise)
+    } else {
+      setCurrentEnterprise("")
     }
-  }, [extracts])
+  }, [statements])
     
-  //Return only boletos enterprise from boletos but no duplicates
-  const enterprisesWithBoletos = extracts.filter((extract, index, self) =>
+  const enterprisesWithStatements = statements.filter((statements, index, self) =>
     index === self.findIndex((t) => (
-      t.enterprise === extract.enterprise
+      t.enterprise === statements.enterprise
     ))
   )
 
-  const extractsPerEnterprise = sortedExtracts.filter((extract) => extract.enterprise === currentEnterprise)
+  const statementsPerEnterprise = sortedStatements.filter((statement) => statement.enterprise === currentEnterprise)
 
   const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
   "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
   ];
 
-  
-  //Return months names in order with boletos from boletos but no duplicates if the year is same
-  const monthsWithExtracts =
-    extractsPerEnterprise
-      .map((extract) => {
-        const month = monthNames[extract.currentMonth.getMonth()];
-        const year = extract.currentMonth.getFullYear();
+  const monthsWithStatements =
+    statementsPerEnterprise
+      .map((statement) => {
+        const month = monthNames[statement.currentMonth.getMonth()];
+        const year = statement.currentMonth.getFullYear();
         return { month, year };
       })
-      .filter((extract, index, self) => {
+      .filter((statement, index, self) => {
         return (
           index ===
           self.findIndex(
-            (t) => t.month === extract.month && t.year === extract.year
+            (t) => t.month === statement.month && t.year === statement.year
           )
         );
       });
 
   return (
     <MainWrapper>
-      <ExtratosContainer>
+      <StatementsContainer>
         <h1>Seus Extratos</h1>
-        {extracts.length > 0 ? (
+        {statements.length > 0 ? (
         <div className="enterprises">
-          {enterprisesWithBoletos.map((enterprise) => (
-            <div key={Math.random()} className={`enterprises__item ${currentEnterprise == enterprise.enterprise ? "selected" : ""}`} onClick={() => setCurrentEnterprise(enterprise.enterprise)}>
+          {enterprisesWithStatements.map((enterprise) => (
+            <div key={enterprise.enterprise} className={`enterprises__item ${currentEnterprise == enterprise.enterprise ? "selected" : ""}`} onClick={() => setCurrentEnterprise(enterprise.enterprise)}>
               <p>{enterprise.enterprise}</p>
             </div>
           ))}
@@ -75,14 +72,14 @@ const Extratos: NextPage = () => {
         <div className="search-filter">
           <SearchBarComponent/>
         </div>
-        {monthsWithExtracts.length > 0 ? (<div className="extratos">
-          {monthsWithExtracts.map((month) => (
-            <div className="extratos__month" key={Math.random() + `${month}`}>
-              <div className="extratos__month__header">
+        {monthsWithStatements.length > 0 ? (<div className="statements">
+          {monthsWithStatements.map((month) => (
+            <div className="statements__month" key={month.month + month.year.toString()}>
+              <div className="statements__month__header">
                 <p className="month">{month.month} {month.year}</p>
               </div>
-              <div className="extratos__container">
-                <table className="extratos__table-head-desktop">
+              <div className="statements__container">
+                <table className="statements__table-head-desktop">
                   <thead>
                     <tr>
                       <td className="enterprise-number">Empresa</td>
@@ -94,44 +91,44 @@ const Extratos: NextPage = () => {
                     </tr>
                   </thead>
                 </table>
-                {extractsPerEnterprise.map((extract) => {
-                  const boletoMonth = monthNames[extract.currentMonth.getMonth()];
-                  const boletoYear = extract.currentMonth.getFullYear();
+                {statementsPerEnterprise.map((statement) => {
+                  const boletoMonth = monthNames[statement.currentMonth.getMonth()];
+                  const boletoYear = statement.currentMonth.getFullYear();
                   if (boletoMonth === month.month && boletoYear === month.year) {
                     return (
                       <>
-                      <div className="extrato-mobile" key={Math.random() + `${extract.boletoCode}`}>
-                        <section className="extratos__section-1">
-                          <section className="extratos__icon-section">
-                          <MdOutlineWatchLater className="extratos__icon"/>
+                      <div className="statement-mobile" key={Math.random() + `${statement.boletoCode}`}>
+                        <section className="statements__section-1">
+                          <section className="statements__icon-section">
+                          <MdOutlineWatchLater className="statements__icon"/>
                           </section>
-                          <section className="extratos__section-1__text">
-                            <p className="reference">{extract.extractReference}</p>
+                          <section className="statements__section-1__text">
+                            <p className="reference">{statement.statementReference}</p>
                             <p>Extrato</p>
                           </section>
                         </section>
                       </div>
 
-                      <div className="extrato-desktop" key={Math.random() + `${extract.boletoCode}`}>
+                      <div className="statement-desktop" key={statement.boletoCode}>
                       <table>
                           <tbody>
                             <tr>
-                              <td className="extrato__enterprise-number">
-                                <p>{extract.enterpriseNumber}</p>
+                              <td className="statement__enterprise-number">
+                                <p>{statement.enterpriseNumber}</p>
                               </td>
-                              <td className="extrato__reference">
-                                <p>{extract.extractReference}</p>
+                              <td className="statement__reference">
+                                <p>{statement.statementReference}</p>
                               </td>
-                              <td className="extrato__contract-number">
-                                <p>{extract.contractNumber}</p>
+                              <td className="statement__contract-number">
+                                <p>{statement.contractNumber}</p>
                               </td>
-                              <td className="extrato__boleto-code">
-                                <p>{extract.boletoCode}</p>
+                              <td className="statement__boleto-code">
+                                <p>{statement.boletoCode}</p>
                               </td>
-                              <td className="extrato__piu-code">
-                                <p>{extract.piuCode}</p>
+                              <td className="statement__piu-code">
+                                <p>{statement.piuCode}</p>
                               </td>
-                              <td className="extrato__view-button">
+                              <td className="statement__view-button">
                                 <button className="irpf-button">IRPF</button>
                                 <button className="view-button">Visualizar</button>
                               </td>
@@ -147,10 +144,10 @@ const Extratos: NextPage = () => {
             </div>
           ))}
         </div>) : 
-        (<div className="no-extratos">
+        (<div className="no-statements">
           <p>Nenhum extrato encontrado</p>
           </div>)}
-      </ExtratosContainer>
+      </StatementsContainer>
     </MainWrapper>
   )
 }

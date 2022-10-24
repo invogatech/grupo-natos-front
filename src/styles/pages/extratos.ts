@@ -2,7 +2,7 @@ import { colors, device } from "@styles/variables";
 import { darken } from "polished";
 import styled from "styled-components";
 
-export const ExtratosContainer = styled.div`
+export const StatementsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.6875rem;
@@ -59,12 +59,12 @@ export const ExtratosContainer = styled.div`
     }
   }
 
-  .extratos {
+  .statements {
     display: flex;
     flex-direction: column;
     gap: 1.6875rem;
 
-    .extratos__month {
+    .statements__month {
 
       border-bottom: 1px solid ${colors.grey400};
       padding-bottom: 1.6875rem;
@@ -79,12 +79,12 @@ export const ExtratosContainer = styled.div`
       }
     }
 
-    .extratos__container {
+    .statements__container {
       display: flex;
       flex-direction: column;
       gap: 1.6875rem;
 
-      .extratos__table-head-desktop {
+      .statements__table-head-desktop {
         display: none;
 
         @media (${device.laptop}) {
@@ -134,7 +134,7 @@ export const ExtratosContainer = styled.div`
         }
       }
 
-      .extrato-mobile {
+      .statement-mobile {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -155,13 +155,13 @@ export const ExtratosContainer = styled.div`
           font-size: 0.875rem;
         }
 
-        .extratos__section-1 {
+        .statements__section-1 {
           display: flex;
           align-items: center;
           gap: 1rem;
           height: 100%;
 
-          .extratos__section-1__text {
+          .statements__section-1__text {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -174,7 +174,7 @@ export const ExtratosContainer = styled.div`
             color: black;
           }
 
-          .extratos__icon-section {
+          .statements__icon-section {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -184,14 +184,14 @@ export const ExtratosContainer = styled.div`
             height: 2.5rem;
             border-radius: 50%;
 
-            .extratos__icon {
+            .statements__icon {
               width: 1.5rem;
               height: 1.5rem;
             }
           }
         }
 
-        .extratos__section-2 {
+        .statements__section-2 {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
@@ -208,7 +208,7 @@ export const ExtratosContainer = styled.div`
         }
       }
 
-      .extrato-desktop {
+      .statement-desktop {
         display: none;
 
         @media (${device.laptop}) {
@@ -239,19 +239,19 @@ export const ExtratosContainer = styled.div`
               td {
                 width: 100%;
 
-                &.extrato__enterprise-number {
+                &.statement__enterprise-number {
                   width: 30%;
                 }
 
-                &.extrato__contract-number {
+                &.statement__contract-number {
                   width: 30%;
                 }
 
-                &.extrato__reference {
+                &.statement__reference {
                   width: 60%;
                 }
                 
-                &.extrato__view-button {
+                &.statement__view-button {
                   display: flex;
                   justify-content: center;
                   gap: 0.5rem;
@@ -290,7 +290,7 @@ export const ExtratosContainer = styled.div`
 
   }
 
-  .no-extratos {
+  .no-statements {
     display: flex;
     align-items: center;
     justify-content: center;
