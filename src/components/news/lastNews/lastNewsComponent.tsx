@@ -1,13 +1,38 @@
+import { useRouter } from "next/router";
 import { LastNewsWrapper } from "./lastNewsStyle";
 
-export default function LastNewsComponent() {
+type NewsType = {
+  id: string;
+  tag: string;
+  title: string;
+  content: string;
+  image: string;
+  createdAt: Date;
+}
+
+type PropsType = {
+  news: NewsType;
+}
+
+export default function LastNewsComponent( { news }: PropsType ) {
+  const router = useRouter();
+  const newsDate = {
+    day: news.createdAt.getDate(),
+    month: (news.createdAt.getMonth() + 1),
+    year: news.createdAt.getFullYear()
+  }
+
+
   return (
-    <LastNewsWrapper>
-      <p className="news-tag">Novidade</p>
-      <img className="news-img" src="https://www.brasilfashionnews.com.br/wp-content/uploads/2020/11/@geral002posalta-800x480.jpg" alt="news-img" />
+    <LastNewsWrapper onClick={() => router.push({
+      pathname: '/noticia',
+      query: { id: news.id },
+    })}>
+      <p className="news-tag">{news.tag}</p>
+      <img className="news-img" src={news.image} alt="news-img" />
       <div className="news-content">
-        <p className="news-date">22/06/2022</p>
-        <p className="news-title">Kiteland: mais uma inovação para sua casa de férias</p>
+        {newsDate.month < 10 ? <p className="news-date">{newsDate.day}/0{newsDate.month}/{newsDate.year}</p> : <p className="news-date">{newsDate.day}/{newsDate.month}/{newsDate.year}</p>}
+        <p className="news-title">{news.title}</p>
       </div>
     </LastNewsWrapper>
   )
