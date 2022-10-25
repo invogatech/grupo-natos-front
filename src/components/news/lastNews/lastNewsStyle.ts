@@ -10,6 +10,10 @@ export const LastNewsWrapper = styled.div`
 
   background: none;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   .news-tag {
     display: flex;
     align-items: center;

@@ -13,6 +13,11 @@ export const OldNewsWrapper = styled.div`
 
   gap: 0.625rem;
 
+  &:hover {
+    cursor: pointer;
+  }
+
+
   @media (${device.laptop}) {
     flex-direction: column-reverse;
     justify-content: start;
