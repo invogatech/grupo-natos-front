@@ -70,20 +70,25 @@ export const OldNewsWrapper = styled.div`
     }
   }
 
-  .news-img {
-    object-fit: cover;
-    width: 8.4375rem;
-    height: 8.25rem;
-
-    margin: 0.3125rem;
+  .news-img-container {
+    position: relative;
+    min-width: 8.4375rem;
+    min-height: 8.25rem;
+    max-width: 8.4375rem;
+    max-height: 8.25rem;
     border-radius: 0.8125rem;
 
     @media (${device.laptop}) {
-      width: 15.125rem;
-      height: 14.25rem;
+      min-width: 15.125rem;
+      min-height: 14.25rem;
+      max-width: 15.125rem;
+      max-height: 14.25rem;
 
       margin: 0.5625rem;
     }
+  }
 
+  .news-img {
+    border-radius: 0.8125rem;
   }
 `;

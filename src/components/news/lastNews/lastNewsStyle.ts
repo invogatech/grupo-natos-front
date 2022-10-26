@@ -31,15 +31,34 @@ export const LastNewsWrapper = styled.div`
 
     font-weight: 700;
     font-size: 0.6875rem;
+
+    z-index: 1;
+  }
+
+  .skeleton-tag {
+    position: absolute;
+
+    top: 15px;
+    left: 15px;
+
+    z-index: 1;
   }
 
   .news-img {
-    object-fit: cover;
-    width: 15.875rem; 
-    height: 60%;
-    
+    position: relative;
+    min-width: 15.875rem; 
+    min-height: 60%;
+    max-width: 15.875rem; 
+    max-height: 60%;
+
     border-top-right-radius: 0.75rem;
     border-top-left-radius: 0.75rem;
+
+    img {
+      border-top-right-radius: 0.75rem;
+      border-top-left-radius: 0.75rem;
+    }
+    
   }
 
   .news-content {
@@ -47,6 +66,8 @@ export const LastNewsWrapper = styled.div`
     flex-direction: column;
     background: ${colors.mainBlue};
     justify-content: center;
+
+    gap: 0.25rem;
 
     height: 40%;
 

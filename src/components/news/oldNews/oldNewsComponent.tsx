@@ -1,6 +1,10 @@
+import SkeletonComponent from "@components/skeleton/skeletonComponent";
 import OldNewsImage from "@public/assets/oldNewsImage.jpg"
+import Image from "next/image";
 import { useRouter } from "next/router";
+import { relative } from "path";
 import { OldNewsWrapper } from "./oldNewsStyle"
+import { useState } from "react";
 
 type NewsType = {
   id: string;
@@ -16,6 +20,7 @@ type PropsType = {
 }
 
 export default function OldNewsComponent( { news }: PropsType ) {
+  const [ isImageLoading, setIsImageLoading ] = useState(true);
   const router = useRouter();
   const newsDate = {
     day: news.createdAt.getDate(),
@@ -29,11 +34,30 @@ export default function OldNewsComponent( { news }: PropsType ) {
       query: { id: news.id },
     })}>
       <div className="news-info">
-        <p className="news-tag">{news.tag}</p>
-        <p className="news-title">{news.title}</p>
-        {newsDate.month < 10 ? <p className="news-date">{newsDate.day}/0{newsDate.month}/{newsDate.year}</p> : <p className="news-date">{newsDate.day}/{newsDate.month}/{newsDate.year}</p>}
+        {isImageLoading ? (
+          <SkeletonComponent width="64px" height="24px" type="text"/>
+        ) : (
+          <p className="news-tag">{news.tag}</p>
+        )}
+
+        {isImageLoading ? (
+          <SkeletonComponent width="100%" height="42px" type="text"/>
+        ) : (
+          <p className="news-title">{news.title}</p>
+        )}
+
+        {isImageLoading ? (
+          <SkeletonComponent width="64px" height="14px" type="text"/>
+        ): (
+        <p className="news-date">
+          {newsDate.day}/{newsDate.month}/{newsDate.year}
+        </p>
+        )}
       </div>
-      <img className="news-img" src={news.image} alt="news-img"/>
+      <div className="news-img-container">
+        {isImageLoading && <SkeletonComponent width="100%" height="100%" type="image"/>}
+        <Image className="news-img" src={`https://res.cloudinary.com/demo/image/fetch/${news.image}`} alt="news-img" objectFit="cover" layout="fill" onLoadingComplete={() => setIsImageLoading(false)}/>
+      </div>
     </OldNewsWrapper>
   )
 }
