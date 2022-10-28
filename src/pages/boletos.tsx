@@ -8,6 +8,7 @@ import SearchBarComponent from '@components/searchBar/searchBarComponent';
 import { BoletosContainer } from '@styles/pages/boletos';
 import { MdOutlineWatchLater } from 'react-icons/md';
 import { BsChevronDown } from 'react-icons/bs'
+import { useRouter } from 'next/router';
 
 const Boletos: NextPage = () => {
   const setCurrentPage = useSideBarStore((state) => state.setCurrentPage);
@@ -18,6 +19,8 @@ const Boletos: NextPage = () => {
   const [ isFilterOpen, setIsFilterOpen ] = useState(false)
   const [ sortedBoletos, setSortedBoletos ] = useState(boletos);
   const [ filteredBoletos, setFilteredBoletos ] = useState(sortedBoletos);
+
+  const router = useRouter();
 
   useEffect(() => {
     setSortedBoletos(boletos.sort(function(a, b) {
@@ -51,8 +54,6 @@ const Boletos: NextPage = () => {
     filterBoletos(currentFilter)
   }, [currentFilter])
 
-
-  //Return only boletos enterprise from boletos but no duplicates
   const enterprisesWithBoletos = boletos.filter((boleto, index, self) =>
     index === self.findIndex((t) => (
       t.enterprise === boleto.enterprise
@@ -65,8 +66,6 @@ const Boletos: NextPage = () => {
   "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
   ];
 
-  
-  //Return months names in order with boletos from boletos but no duplicates if the year is same
   const monthsWithBoletos =
     boletosPerEnterprise
       .map((boleto) => {
@@ -139,7 +138,10 @@ const Boletos: NextPage = () => {
                   if (boletoMonth === month.month && boletoYear === month.year) {
                     return (
                       <>
-                      <div className="boleto-mobile" key={Math.random() + `${boleto.number}`}>
+                      <div className="boleto-mobile" key={Math.random() + `${boleto.number}`} onClick={() => router.push({
+                          pathname: '/boleto',
+                          query: { id: boleto.code },
+                        })}>
                         <section className="boleto__section-1">
                           <section className="boleto__icon-section">
                           <MdOutlineWatchLater className="boleto__icon"/>

@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import SearchBarComponent from '@components/searchBar/searchBarComponent';
 import { StatementsContainer } from '@styles/pages/extratos';
 import { MdOutlineWatchLater } from 'react-icons/md';
+import { useRouter } from 'next/router';
 
 const Extratos: NextPage = () => {
   const setCurrentPage = useSideBarStore((state) => state.setCurrentPage);
@@ -13,6 +14,8 @@ const Extratos: NextPage = () => {
   const statements = useStatementsStore((state) => state.statements);
   const [ currentEnterprise, setCurrentEnterprise ] = useState("");
   const [ sortedStatements, setSortedStatements ] = useState(statements);
+
+  const router = useRouter();
 
   useEffect(() => {
     setSortedStatements(statements.sort(function(a, b) {
@@ -97,7 +100,10 @@ const Extratos: NextPage = () => {
                   if (boletoMonth === month.month && boletoYear === month.year) {
                     return (
                       <>
-                      <div className="statement-mobile" key={Math.random() + `${statement.boletoCode}`}>
+                      <div className="statement-mobile" key={Math.random() + `${statement.boletoCode}`} onClick={() => router.push({
+                          pathname: '/extrato',
+                          query: { id: statement.id },
+                        })}>
                         <section className="statements__section-1">
                           <section className="statements__icon-section">
                           <MdOutlineWatchLater className="statements__icon"/>

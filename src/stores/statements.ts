@@ -1,6 +1,7 @@
 import create from 'zustand'
 
 type StatementType = {
+  id: string;
   enterprise: string;
   enterpriseNumber: string;
   contractNumber: number;
@@ -18,6 +19,8 @@ type State = {
 const useStatementsStore = create<State>((set) => ({
   statements: [
     { 
+      
+      id: "1",
       enterprise: 'Empresa 1',
       enterpriseNumber: '1.0',
       contractNumber: 123456,
@@ -27,6 +30,7 @@ const useStatementsStore = create<State>((set) => ({
       currentMonth: new Date('2021-01-23T03:24:00'),
     },
     { 
+      id: "2",
       enterprise: 'Empresa 1',
       contractNumber: 123456,
       enterpriseNumber: '1.0',
@@ -36,6 +40,7 @@ const useStatementsStore = create<State>((set) => ({
       currentMonth: new Date('2021-02-23T03:24:00'),
     },
     { 
+      id: "3",
       enterprise: 'Empresa 1',
       contractNumber: 123456,
       enterpriseNumber: '1.0',
@@ -45,6 +50,7 @@ const useStatementsStore = create<State>((set) => ({
       currentMonth: new Date('2021-01-20T03:24:00'),
     },
     { 
+      id: "4",
       enterprise: 'Empresa 2',
       contractNumber: 123456,
       enterpriseNumber: '1.0',
