@@ -152,6 +152,7 @@ export const NotificationItem = styled.section`
 
 export const AvatarItem = styled.section`
   display: flex;
+  position: relative;
   align-items: center;
   gap: 1rem;
 
@@ -180,5 +181,11 @@ export const AvatarItem = styled.section`
         cursor: pointer;
       }
     }
+  }
+
+  .profile-popup {
+    position: absolute;
+    top: 60px;
+    right: 10px;
   }
 `;

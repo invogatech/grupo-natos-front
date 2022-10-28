@@ -8,10 +8,6 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
 
-    position: absolute;
-    top: 80px;
-    right: 20px;
-
     width: 12.5rem;
 
     background-color: #fff;

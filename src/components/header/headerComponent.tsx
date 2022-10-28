@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { AiOutlineMenu } from "react-icons/ai"
 import { BsChevronDown } from "react-icons/bs"
 import NotificationBellEmpty from "@public/assets/notificacoesHeader.svg"
@@ -28,6 +28,21 @@ export default function HeaderComponent() {
     setIsProfilePopUpOpen(!isProfilePopUpOpen);
   }
 
+  const profileRef = useRef<any>(null)
+
+  const handleClickOutside = (event: any) => {
+    if (profileRef.current && !profileRef.current.contains(event.target)) {
+      setIsProfilePopUpOpen(false)
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [])
+
   const router = useRouter();
 
   return (
@@ -50,7 +65,11 @@ export default function HeaderComponent() {
         <AvatarItem>
           <img className="user-avatar" src="https://im.indiatimes.in/content/2020/Oct/Keanu-Reeves-as-Neo-in-Matrix1_5f9bc1284584e.jpg?w=725&h=452&cc=1"/>
           <BsChevronDown className="avatar-arrow" onClick={() => toggleProfilePopUp()}/>
-          {isProfilePopUpOpen && <ProfilePopUpComponent/>}
+          {isProfilePopUpOpen && (
+          <div className="profile-popup" ref={profileRef}>
+            <ProfilePopUpComponent/>
+          </div>
+          )}
         </AvatarItem>
       </ItemsContainer>
     </HeaderContainer>

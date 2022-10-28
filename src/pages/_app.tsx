@@ -5,6 +5,7 @@ import '@styles/fonts.css';
 import SideBarComponent from '@components/sideBar/sideBarComponent';
 import HeaderComponent from '@components/header/headerComponent';
 import { MainContainer, Wrapper } from '@styles/pages';
+import SupportComponent from '@components/support/supportComponent';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -17,6 +18,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <SideBarComponent/>
           <MainContainer>
             <HeaderComponent/>
+            <SupportComponent/>
             <Component {...pageProps} />
           </MainContainer>
         </>
