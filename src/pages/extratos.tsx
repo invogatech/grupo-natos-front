@@ -10,7 +10,6 @@ import { useRouter } from 'next/router';
 
 const Extratos: NextPage = () => {
   const setCurrentPage = useSideBarStore((state) => state.setCurrentPage);
-  setCurrentPage('extratos')
   const statements = useStatementsStore((state) => state.statements);
   const [ currentEnterprise, setCurrentEnterprise ] = useState("");
   const [ sortedStatements, setSortedStatements ] = useState(statements);
@@ -28,6 +27,10 @@ const Extratos: NextPage = () => {
       setCurrentEnterprise("")
     }
   }, [statements])
+
+  useEffect(() => {
+    setCurrentPage('extratos')
+  }, [])
     
   const enterprisesWithStatements = statements.filter((statements, index, self) =>
     index === self.findIndex((t) => (

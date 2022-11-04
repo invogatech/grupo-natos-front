@@ -1,9 +1,12 @@
 import useBoletosStore from "@stores/boletos";
+import useSideBarStore from "@stores/sideBar";
 import { MainWrapper } from "@styles/globals";
 import { BoletoContainer } from "@styles/pages/boleto";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 export default function Boleto() {
+  const setCurrentPage = useSideBarStore((state) => state.setCurrentPage);
   const boletos = useBoletosStore((state) => state.boletos);
 
   const router = useRouter();
@@ -19,6 +22,10 @@ export default function Boleto() {
   }
 
   const boletoFormattedValue = currentBoleto?.value.toString().replace('.', ',').replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+
+  useEffect(() => {
+    setCurrentPage('boletos')
+  }, [])
 
 
   return (

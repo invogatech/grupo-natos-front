@@ -12,7 +12,6 @@ import { useRouter } from 'next/router';
 
 const Boletos: NextPage = () => {
   const setCurrentPage = useSideBarStore((state) => state.setCurrentPage);
-  setCurrentPage('boletos')
   const boletos = useBoletosStore((state) => state.boletos);
   const [ currentEnterprise, setCurrentEnterprise ] = useState("")
   const [ currentFilter, setCurrentFilter ] = useState('Todos')
@@ -21,6 +20,10 @@ const Boletos: NextPage = () => {
   const [ filteredBoletos, setFilteredBoletos ] = useState(sortedBoletos);
 
   const router = useRouter();
+
+  useEffect(() => {
+    setCurrentPage('boletos')
+  }, [])
 
   useEffect(() => {
     setSortedBoletos(boletos.sort(function(a, b) {

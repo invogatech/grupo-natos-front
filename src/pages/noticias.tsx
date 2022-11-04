@@ -19,12 +19,12 @@ type NewsType = {
 const Noticias: NextPage = () => {
   const news = useNewsStore((state) => state.news)
   const setCurrentPage = useSideBarStore((state) => state.setCurrentPage);
-  setCurrentPage('noticias')
 
   const [ lastNews, setLastNews ] = useState<NewsType[]>([])
   const [ oldNews, setOldNews ] = useState<NewsType[]>([])
 
   useEffect(() => {
+    setCurrentPage('noticias')
 
     if (news.length > 0) {
       // Filter just the news that are creadetAt at least 7 days ago
