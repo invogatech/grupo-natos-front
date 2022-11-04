@@ -1,12 +1,16 @@
 import { Wrapper } from '@styles/pages'
 import type { NextPage } from 'next'
 import useSideBarStore from '@stores/sideBar'
-import { MainWrapper } from '@styles/globals';
+import { MainWrapper } from '@styles/globals'
+import { useEffect } from 'react'
 
 
 const Empreendimento: NextPage = () => {
   const setCurrentPage = useSideBarStore((state) => state.setCurrentPage);
-  setCurrentPage('empreendimento')
+  
+  useEffect(() => {
+    setCurrentPage('empreendimento')
+  }, [])
 
   return (
     <MainWrapper>

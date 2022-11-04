@@ -1,10 +1,14 @@
 import useNewsStore from '@stores/news';
+import useSideBarStore from '@stores/sideBar';
 import { MainWrapper } from '@styles/globals';
 import { NewsContainer } from '@styles/pages/noticia';
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router';
+import { useEffect } from 'react'
 
 const Noticia: NextPage = () => {
+  const setCurrentPage = useSideBarStore((state) => state.setCurrentPage);
+
   const router = useRouter();
   const { id } = router.query;
 
@@ -18,6 +22,10 @@ const Noticia: NextPage = () => {
       month: currentNews?.createdAt.getMonth(),
       year: currentNews?.createdAt.getFullYear()
     }
+
+    useEffect(() => {
+      setCurrentPage('noticias')
+    }, [])
     
   return (
     <MainWrapper>

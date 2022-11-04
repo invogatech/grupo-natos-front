@@ -1,9 +1,12 @@
+import useSideBarStore from "@stores/sideBar";
 import useStatementsStore from "@stores/statements";
 import { MainWrapper } from "@styles/globals";
 import { ExtratoContainer } from "@styles/pages/extrato";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 export default function Extrato() {
+  const setCurrentPage = useSideBarStore((state) => state.setCurrentPage);
   const statements = useStatementsStore((state) => state.statements);
 
   const router = useRouter();
@@ -17,6 +20,10 @@ export default function Extrato() {
     month: currentStatement?.currentMonth.getMonth(),
     year: currentStatement?.currentMonth.getFullYear()
   }
+
+  useEffect(() => {
+    setCurrentPage('extrato')
+  }, [])
 
 
   return (
